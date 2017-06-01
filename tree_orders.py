@@ -15,6 +15,15 @@ class Tree(object):
         self.node_dict = {x:[-1, -1, -1, -1] for x in range(n)}
         
         
+    def add_node(self, k, l, r):
+        self.node_dict[k][:3] = [k, l, r]
+        self.node_dict[l][3] = k
+        self.node_dict[r][3] = k
+                      
+        
+        
+        
+        
     
     
     
