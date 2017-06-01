@@ -1,12 +1,11 @@
+#python3
 # -*- coding: utf-8 -*-
 """
 In-Order, Pre-Order, Post-Order Traversals
 """
-
-
-
-    
-    
+import sys, threading
+sys.setrecursionlimit(10**6) # max depth of recursion
+threading.stack_size(2**27)  # new thread will get stack of such size
     
 class Tree(object):
     
@@ -16,12 +15,10 @@ class Tree(object):
         self.result_in_order = []
         self.result_pre_order = []
         self.result_post_order = []
-        
-        
+               
     def add_node(self, i, k, l, r):
         self.node_dict[i] = [k, l, r]
-
-                      
+                     
     def in_order(self, t):
         key, left, right = self.node_dict[t][:3]
         if left != -1:
@@ -46,23 +43,20 @@ class Tree(object):
             self.post_order(right)
         self.result_post_order.append(key)
     
-    
-n=5        
+
+n = int(sys.stdin.readline())
+       
 t = Tree(n)
 
-
-lst =[(4, 1, 2), (2, 3, 4), (5, -1, -1), (1, -1, -1), (3, -1, -1)]
-
-for i in range(len(lst)):
-    k, l, r = lst[i]
+for i in range(n):
+    k, l, r = map(int, sys.stdin.readline().split())
     t.add_node(i,k,l,r)
-    
-print(t.node_dict)
+
 t.in_order(0) 
-print(t.result_in_order)
+print(" ".join(map(str,t.result_in_order)))
 t.pre_order(0)
-print(t.result_pre_order)
+print(" ".join(map(str,t.result_pre_order)))
 t.post_order(0)
-print(t.result_post_order)
+print(" ".join(map(str,t.result_post_order)))
         
     
