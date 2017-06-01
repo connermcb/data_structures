@@ -10,6 +10,7 @@ class TreeChecker(object):
         # list values = keys for self, dictkey left, dictkey right respectively
         self.node_dict = {x:[-1, -1, -1] for x in range(n)}
         self.in_order_list = []
+        self.result = 'CORRECT'
 
                
     def add_node(self, i, k, l, r):
@@ -21,7 +22,9 @@ class TreeChecker(object):
             self.in_order(left)
         self.in_order_list.append(key)
         if self.in_order_list[-1] < self.in_order_list[-2]:
-            
+            self.result = 'INCORRECT'
             return
         if right != -1:
             self.in_order(right)
+            
+        
