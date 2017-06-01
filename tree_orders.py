@@ -11,8 +11,8 @@ In-Order, Pre-Order, Post-Order Traversals
 class Tree(object):
     
     def __init__(self, n):
-        # list values = keys for self, left, right, parent respectively
-        self.node_dict = {}
+        # list values = keys for self, dictkey left, dictkey right respectively
+        self.node_dict = {x:[-1, -1, -1]}
         self.result_in_order = []
         self.result_pre_order = []
         self.result_post_order = []
