@@ -18,8 +18,8 @@ class Tree(object):
         self.result_post_order = []
         
         
-    def add_node(self, k, l, r):
-        self.node_dict[k] = [k, l, r]
+    def add_node(self, i, k, l, r):
+        self.node_dict[i] = [k, l, r]
 
                       
     def in_order(self, t):
@@ -53,9 +53,9 @@ t = Tree(n)
 
 l =[(4, 1, 2), (2, 3, 4), (5, -1, -1), (1, -1, -1), (3, -1, -1)]
 
-for each in l:
+for i in range(len(l)):
     k, l, r = each
-    t.add_node(k,l,r)
+    t.add_node(i,k,l,r)
     
 print(t.node_dict)
     
