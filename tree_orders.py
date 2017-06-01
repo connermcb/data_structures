@@ -43,20 +43,21 @@ class Tree(object):
             self.post_order(right)
         self.result_post_order.append(key)
     
-
-n = int(sys.stdin.readline())
-       
-t = Tree(n)
-
-for i in range(n):
-    k, l, r = map(int, sys.stdin.readline().split())
-    t.add_node(i,k,l,r)
-
-t.in_order(0) 
-print(" ".join(map(str,t.result_in_order)))
-t.pre_order(0)
-print(" ".join(map(str,t.result_pre_order)))
-t.post_order(0)
-print(" ".join(map(str,t.result_post_order)))
+def main():
+    n = int(sys.stdin.readline())
+           
+    t = Tree(n)
+    
+    for i in range(n):
+        k, l, r = map(int, sys.stdin.readline().split())
+        t.add_node(i,k,l,r)
+    
+    t.in_order(0) 
+    print(" ".join(map(str,t.result_in_order)))
+    t.pre_order(0)
+    print(" ".join(map(str,t.result_pre_order)))
+    t.post_order(0)
+    print(" ".join(map(str,t.result_post_order)))
         
+threading.Thread(target=main).start()
     
