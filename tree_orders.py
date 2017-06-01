@@ -39,6 +39,13 @@ class Tree(object):
         self.pre_order(left)
         self.pre_order(right)
         
+    def post_order(self, t):
+        if sum(self.node_dict[t][1:3]) == -2:
+            return       
+        key, left, right = self.node_dict[t][:3]
+        self.post_order(left)
+        self.post_order(right)
+        self.result_post_order.append(key)
     
         
         
