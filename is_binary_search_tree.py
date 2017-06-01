@@ -34,7 +34,7 @@ class TreeChecker(object):
 def main():
     n = int(sys.stdin.readline())
            
-    t = Tree(n)
+    t = TreeChecker(n)
     
     for i in range(n):
         k, l, r = map(int, sys.stdin.readline().split())
