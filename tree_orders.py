@@ -32,7 +32,14 @@ class Tree(object):
         self.in_order(right)
         
     def pre_order(self, t):
+        if sum(self.node_dict[t][1:3]) == -2:
+            return       
+        key, left, right = self.node_dict[t][:3]
+        self.result_pre_order.append(key)
+        self.pre_order(left)
+        self.pre_order(right)
         
+    
         
         
     
