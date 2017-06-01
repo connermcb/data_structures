@@ -12,7 +12,7 @@ class Tree(object):
     
     def __init__(self, n):
         # list values = keys for self, left, right, parent respectively
-        self.node_dict = {x:[-1, -1, -1, -1] for x in range(n)}
+        self.node_dict = {x:[-1, -1, -1, -1] for x in range(1, n+1)}
         self.result_in_order = []
         self.result_pre_order = []
         self.result_post_order = []
@@ -20,8 +20,10 @@ class Tree(object):
         
     def add_node(self, k, l, r):
         self.node_dict[k][:3] = [k, l, r]
-        self.node_dict[l][3] = k
-        self.node_dict[r][3] = k
+        if l > 0:
+            self.node_dict[l][3] = k
+        if r > 0:
+            self.node_dict[r][3] = k
                       
     def in_order(self, t):
         if sum(self.node_dict[t][1:3]) == -2:
@@ -47,8 +49,16 @@ class Tree(object):
         self.post_order(right)
         self.result_post_order.append(key)
     
-        
-        
+    
+n=5        
+t = Tree(n)
+
+
+l =[(4, 1, 2), (2, 3, 4), (5, -1, -1), (1, -1, -1), (3, -1, -1)]
+
+for each in l:
+    k, l, r = each
+    t.add_node(k,l,r)
     
     
     
