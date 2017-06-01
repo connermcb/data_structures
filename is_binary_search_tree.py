@@ -4,6 +4,10 @@
 Binary Tree or Not
 """
 
+import sys, threading
+sys.setrecursionlimit(10**6) # max depth of recursion
+threading.stack_size(2**27)  # new thread will get stack of such size
+
 class TreeChecker(object):
     
     def __init__(self, n):
@@ -27,4 +31,15 @@ class TreeChecker(object):
         if right != -1:
             self.in_order(right)
             
-        
+def main():
+    n = int(sys.stdin.readline())
+           
+    t = Tree(n)
+    
+    for i in range(n):
+        k, l, r = map(int, sys.stdin.readline().split())
+        t.add_node(i,k,l,r)
+    t.in_order(0) 
+    print(t.result)
+    
+threading.Thread(target=main).start()
